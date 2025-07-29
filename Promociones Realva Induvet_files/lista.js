@@ -1,4 +1,4 @@
-const products =
+const productos =
     [
 
         " ANDMOLD DRY - 25KG",
@@ -156,4 +156,6 @@ const products =
 
     ];
 
-console.log(products);
+
+
+console.log(productos);

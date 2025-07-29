@@ -267,6 +267,18 @@
 
                 <input class="input" type="text" name="invoice" id="invoice"
                     placeholder="Ingresa el número de tu Factura (Ej. 45000)">
+
+
+                    <div class="flex-row"> 
+                        <label for="product-select">Seleciona un producto</label>
+                        <select id="product-select">
+                            <option value="">-- Seleccione el producto</option>
+                        </select>
+                    </div>
+
+                   
+
+
                 <div class="flex-row">
                     <label class="checkbox">Adjunta imagen de tu factura:</label>
                     <input class="input" type="file" name="my_file" id="my_file" required="">
@@ -308,7 +320,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">Copyright © 2024 Todos los derechos reservados.
+                    <p class="copyright-text">Copyright © 2025 Todos los derechos reservados.
                     </p>
                 </div>
 
@@ -364,7 +376,27 @@
                         alert(JSON.stringify(err));
                     });
             });
+            
     </script>
+     
+<script src="lista.js"></script>
+<script >
+    function cargarProductosEnselect(idSelecet, listaProductos){
+        const select = document.getElementById(idSelecet);
+
+        Selection.innerHTML.forEach(producto => {
+            const option = document.createElement('option');
+            option.value = producto;
+            option.textContent = producto;
+            select.appendChild(option);
+        });
+    }
+
+    window.onload = () =>{
+        cargarProductosEnselect('product-select', producto);
+    };
+    
+</script>
 
 </body>
 
