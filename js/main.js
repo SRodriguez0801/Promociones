@@ -1,19 +1,19 @@
 function modal() {
 
-const contactForm = document.querySelector(".contact-form");
-const submit = document.querySelector(".submit-form");
-const modal = document.querySelector(".modal-wrap");
-const close = document.querySelector(".modal-close");
+  const contactForm = document.querySelector(".contact-form");
+  const submit = document.querySelector(".submit-form");
+  const modal = document.querySelector(".modal-wrap");
+  const close = document.querySelector(".modal-close");
 
-submit.addEventListener("click", (e) => {
-        contactForm.reset();
-        modal.classList.toggle("display-none");
-    }
-);
-
-close.addEventListener("click", () => {
+  submit.addEventListener("click", (e) => {
+    contactForm.reset();
     modal.classList.toggle("display-none");
-})
+  }
+  );
+
+  close.addEventListener("click", () => {
+    modal.classList.toggle("display-none");
+  })
 }
 
 
@@ -21,7 +21,7 @@ close.addEventListener("click", () => {
 mybutton = document.getElementById("myBtn");
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -44,40 +44,28 @@ const closeIcon = document.querySelector(".fa-times-circle");
 const mobileBG = document.querySelector(".mobile-bg");
 const mobileNav = document.querySelector(".mobile-nav");
 
-openIcon.addEventListener("click" , () => {
+openIcon.addEventListener("click", () => {
+  mobileBG.classList.toggle("display-none");
+  mobileNav.classList.remove("slide-out");
+  mobileNav.classList.toggle("slide-in");
+  openIcon.classList.toggle("display-none");
+});
+
+closeIcon.addEventListener("click", () => {
+  setTimeout(() => {
     mobileBG.classList.toggle("display-none");
-    mobileNav.classList.remove("slide-out");
-    mobileNav.classList.toggle("slide-in");
     openIcon.classList.toggle("display-none");
+  }, 500);
+  mobileNav.classList.toggle("slide-in");
+  mobileNav.classList.toggle("slide-out");
 });
 
-closeIcon.addEventListener("click" , () => {
-    setTimeout(() => {
-        mobileBG.classList.toggle("display-none");
-        openIcon.classList.toggle("display-none");
-    }, 500);
-    mobileNav.classList.toggle("slide-in");
-    mobileNav.classList.toggle("slide-out");
-});
+// Aquí agregas el código para el toggle del menú en pantallas pequeñas
+// SOLO SI aún no lo tienes.
+const menuToggle = document.querySelector('.menu-toggle'); // Asegúrate que tienes ese class
+if (menuToggle) {
+  menuToggle.addEventListener('click', () => {
+    document.querySelector('.nav-links').classList.toggle('show');
+  });
+}
 
-/*
-//Send Email
-function sendEmail(params) {
-    var tempParams = {
-        from_name: document.getElementById("from_name").value,
-        emailaddress: document.getElementById("email-address").value,
-        phone: document.getElementById("phone").value,
-        dni: document.getElementById("dni").value,
-        pet_name: document.getElementById("pet-name").value,
-        pet_breed: document.getElementById("pet-breed").value,
-        age: document.getElementById("age").value,
-        invoice: document.getElementById("invoice").value,
-        invoiceimage: document.getElementById("my_file").value,
-        location: document.getElementById("location").value,
-    };
-    
-    
-    emailjs.sendForm('promosrealvainduvet','template_oe07u0d', '#myForm', 'Z7ETfQzsDxRAJKN2f').then(function(res) {
-    console.log("SEND", res.status);
-})
-}*/
